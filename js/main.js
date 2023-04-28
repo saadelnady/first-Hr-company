@@ -8,92 +8,72 @@ close.onclick = function () {
 bar.onclick = function () {
   links.classList.remove("hide");
 };
+
+// ==========================================================================================
+// ==========================================================================================
 // change page language
+let selectedLanguage = document.getElementById("selected_language");
+let selectedLanguageImage = document.querySelector(".selected_language img");
+let selectedLanguageButton = document.querySelector(
+  ".selected_language button"
+);
 
-let mySelect = document.getElementById("lang");
-let myhtml = document.getElementsByTagName("html")[0];
+let languageUl = document.querySelector(".select_language");
 
-mySelect.onclick = () => {
-  let lang = "ar";
-  if (mySelect.value === lang) {
-    myhtml.setAttribute("lang", "ar");
-    myhtml.setAttribute("dir", "rtl");
-  } else {
-    myhtml.setAttribute("lang", "eng");
-    myhtml.setAttribute("dir", "ltr");
-  }
+let languages = document.querySelectorAll(".select_language li");
+let myHtml = document.getElementsByTagName("html")[0];
+
+selectedLanguage.onclick = function () {
+  languageUl.classList.toggle("active");
 };
 
+languages.forEach((language) => {
+  language.onclick = function () {
+    let selectImage = this.children[0].src;
+    selectedLanguageImage.src = selectImage;
+
+    let selectLang = this.children[1];
+    selectedLanguageButton.innerHTML = selectLang.innerHTML;
+    if (selectLang.getAttribute("data-src") === "ar") {
+      myHtml.setAttribute("lang", "ar");
+      myHtml.setAttribute("dir", "rtl");
+    } else {
+      myHtml.setAttribute("lang", "en");
+      myHtml.setAttribute("dir", "ltr");
+    }
+  };
+});
+
+// ==========================================================================================
+// ==========================================================================================
 // making slider
 
-// get our items
-let sliderImages = document.querySelectorAll(".images img");
-let nextbtn = document.getElementById("next");
-let previousbtn = document.getElementById("previous");
-let sliderBullets = document.getElementById("bullets");
-let slidesCount = sliderImages.length;
-let currentSlide = 1;
+let sliderImages = [
+  "../assets/images/jpg/home/bg_landing_1.jpg",
+  "../assets/images/jpg/home/bg_landing_2.jpg",
+  "../assets/images/jpg/home/bg_landing_3.jpg",
+];
+let nextBtn = document.querySelector(".hero .arrows #next");
+let previousBtn = document.querySelector(".hero .arrows #previous");
 
-// make bullets count by numbers of images
+let heroDiv = document.querySelector(".hero");
 
-for (let i = 1; i <= slidesCount; i++) {
-  let sliderBullet = document.createElement("li");
-  sliderBullet.setAttribute("class", "bullet");
-  sliderBullet.setAttribute("data-index", i);
-  sliderBullets.appendChild(sliderBullet);
-}
-let sliderBullet = document.querySelectorAll("#bullets li");
+nextBtn.onclick = nextSlide;
+previousBtn.onclick = previousSlide;
+heroDiv.style.background = `url(${sliderImages[0]})`;
 
-for (let i = 0; i < sliderBullet.length; i++) {
-  sliderBullet[i].onclick = () => {
-    currentSlide = +sliderBullet[i].getAttribute("data-index");
-    checker();
-  };
-}
-//  function remove All active class
-
-function removeAllactive() {
-  // حذف ative class من جميع الصور
-  sliderImages.forEach(function (img) {
-    img.classList.remove("active");
-  });
-  // حذف ative class من جميع bullets
-  sliderBullet.forEach(function (bullet) {
-    bullet.classList.remove("active");
-  });
-  if (currentSlide == 1) {
-    previousbtn.classList.add("disabled");
+function nextSlide() {
+  if (i < sliderImages) {
+    i++;
   } else {
-    previousbtn.classList.remove("disabled");
-  }
-
-  if (currentSlide == slidesCount) {
-    nextbtn.classList.add("disabled");
-  } else {
-    nextbtn.classList.remove("disabled");
-  }
-}
-function checker() {
-  removeAllactive();
-  sliderImages[currentSlide - 1].classList.add("active");
-  sliderBullet[currentSlide - 1].classList.add("active");
-}
-checker();
-
-nextbtn.onclick = () => {
-  if (nextbtn.classList.contains("disabled")) {
     return false;
-  } else {
-    currentSlide++;
-    checker();
   }
-};
-previousbtn.onclick = () => {
-  if (previousbtn.classList.contains("disabled")) {
+}
+
+function previousSlide() {
+  if (i !== 0) {
+    i--;
+  } else {
     return false;
-  } else {
-    currentSlide--;
-    checker();
   }
-};
-  
+}
