@@ -53,27 +53,68 @@ let sliderImages = [
   "../assets/images/jpg/home/bg_landing_2.jpg",
   "../assets/images/jpg/home/bg_landing_3.jpg",
 ];
-let nextBtn = document.querySelector(".hero .arrows #next");
-let previousBtn = document.querySelector(".hero .arrows #previous");
-
+let sliderCount = sliderImages.length;
+let currentSlide = 0;
+let nextBtnslider = document.querySelector(".hero .arrows #next");
+let previousBtnslider = document.querySelector(".hero .arrows #previous");
+let bulletsDiv = document.getElementById("bullets");
 let heroDiv = document.querySelector(".hero");
 
-nextBtn.onclick = nextSlide;
-previousBtn.onclick = previousSlide;
-heroDiv.style.background = `url(${sliderImages[0]})`;
+sliderImages.forEach((img, index) => {
+  if (index < sliderCount) {
+    let bullet = document.createElement("li");
+    bulletsDiv.appendChild(bullet);
+    bullet.setAttribute("data-index", index);
+  }
+});
 
-function nextSlide() {
-  if (i < sliderImages) {
-    i++;
+let sliderBullets = document.querySelectorAll("#bullets li");
+
+function showSlide() {
+  heroDiv.style.background = `url(${sliderImages[currentSlide]})`;
+
+  sliderBullets[currentSlide].classList.add("active");
+}
+showSlide();
+sliderBullets.forEach((bullet) => {
+  bullet.onclick = function () {
+    currentSlide = this.getAttribute("data-index");
+    removeActive();
+    showSlide();
+  };
+});
+
+function removeActive() {
+  sliderBullets.forEach((bullet) => {
+    bullet.classList.remove("active");
+  });
+  if (currentSlide === 0) {
+    previousBtnslider.classList.add("disabled");
+  } else {
+    previousBtnslider.classList.remove("disabled");
+  }
+  if (currentSlide === sliderCount - 1) {
+    nextBtnslider.classList.add("disabled");
+  } else {
+    nextBtnslider.classList.remove("disabled");
+  }
+}
+removeActive();
+nextBtnslider.onclick = function () {
+  if (currentSlide < sliderCount - 1) {
+    currentSlide++;
+    removeActive();
+    showSlide();
   } else {
     return false;
   }
-}
-
-function previousSlide() {
-  if (i !== 0) {
-    i--;
+};
+previousBtnslider.onclick = function () {
+  if (currentSlide > 0) {
+    currentSlide--;
+    removeActive();
+    showSlide();
   } else {
     return false;
   }
-}
+};

@@ -203,6 +203,7 @@ a {
   border-left: 1px solid #696b72;
   border-right: 1px solid #696b72;
   position: relative;
+  margin: 0 10px;
 }
 
 .header-up .left .language button {
