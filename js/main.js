@@ -3,10 +3,10 @@ let close = document.getElementById("close");
 let links = document.getElementById("links");
 
 close.onclick = function () {
-  links.classList.add("hide");
+  links.classList.remove("active");
 };
 bar.onclick = function () {
-  links.classList.remove("hide");
+  links.classList.add("active");
 };
 
 // ==========================================================================================
@@ -49,9 +49,9 @@ languages.forEach((language) => {
 // making slider
 
 let sliderImages = [
-  "../assets/images/jpg/home/bg_landing_1.jpg",
-  "../assets/images/jpg/home/bg_landing_2.jpg",
-  "../assets/images/jpg/home/bg_landing_3.jpg",
+  "assets/images/jpg/home/bg_landing_1.jpg",
+  "assets/images/jpg/home/bg_landing_2.jpg",
+  "assets/images/jpg/home/bg_landing_3.jpg",
 ];
 let sliderCount = sliderImages.length;
 let currentSlide = 0;
@@ -72,22 +72,25 @@ let sliderBullets = document.querySelectorAll("#bullets li");
 
 function showSlide() {
   heroDiv.style.background = `url(${sliderImages[currentSlide]})`;
-
   sliderBullets[currentSlide].classList.add("active");
 }
 showSlide();
 sliderBullets.forEach((bullet) => {
   bullet.onclick = function () {
     currentSlide = this.getAttribute("data-index");
-    removeActive();
+
+    removeBulletsActivation();
     showSlide();
   };
 });
 
-function removeActive() {
+function removeBulletsActivation() {
   sliderBullets.forEach((bullet) => {
     bullet.classList.remove("active");
   });
+}
+
+function removeSliderButtonsActivation() {
   if (currentSlide === 0) {
     previousBtnslider.classList.add("disabled");
   } else {
@@ -99,11 +102,12 @@ function removeActive() {
     nextBtnslider.classList.remove("disabled");
   }
 }
-removeActive();
+
 nextBtnslider.onclick = function () {
   if (currentSlide < sliderCount - 1) {
     currentSlide++;
-    removeActive();
+    removeBulletsActivation();
+    removeSliderButtonsActivation();
     showSlide();
   } else {
     return false;
@@ -112,9 +116,46 @@ nextBtnslider.onclick = function () {
 previousBtnslider.onclick = function () {
   if (currentSlide > 0) {
     currentSlide--;
-    removeActive();
+    removeBulletsActivation();
+    removeSliderButtonsActivation();
     showSlide();
   } else {
     return false;
   }
 };
+
+// ==========================================================================================
+// ==========================================================================================
+// portfolio slider
+let nextBtnPortfolioSlider = document.getElementById("nextSlider");
+let previousBtnPortfolioSlider = document.getElementById("prevSlider");
+
+let porfolioCards = document.querySelectorAll(".portfolio .Cards .Card");
+currentCard = 0;
+
+nextBtnPortfolioSlider.onclick = movetoRight;
+previousBtnPortfolioSlider.onclick = movetoLeft;
+let translatePluse = `translatex(350px)`;
+let translateMinus = `translatex(-350px)`;
+lastCard = porfolioCards.length - 1;
+firstCard = porfolioCards[0];
+
+function movetoRight() {
+  if (currentSlide < porfolioCards.length - 1) {
+    currentSlide++;
+    porfolioCards.forEach((card) => {
+      card.style.transform += translatePluse;
+    });
+  }
+  // porfolioCards[currentCard].style.transform = `translatex(350px)`;
+}
+
+function movetoLeft() {
+  if (currentSlide === 0) {
+    currentSlide--;
+
+    porfolioCards.forEach((card) => {
+      card.style.transform += translateMinus;
+    });
+  }
+}

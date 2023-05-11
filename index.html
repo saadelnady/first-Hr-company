@@ -19,22 +19,21 @@
 <body>
   <!-- start hero -->
   <div class="hero">
-
-    <div class="arrows d-none d-sm-block">
+    <div class="arrows d-none d-sm-block ">
       <i class="fa-solid fa-angle-right" id="next"></i>
       <i class="fa-solid fa-angle-left" id="previous"></i>
     </div>
     <ul class="bullets" id="bullets">
     </ul>
     <div class="header">
-      <div class="header-up pt-3 container justify-content-between align-items-center 	d-none  d-lg-flex">
-        <div class="right d-flex  ">
-          <div class="one d-flex  ">
-            <img src="assets/images/svgs/home/ic_envolope_open.svg" alt="" class="ms-2">
+      <div class="header-up pt-3 container justify-content-between align-items-center d-none d-lg-flex">
+        <div class="right d-flex ">
+          <div class="one d-flex me-3 ">
+            <img src="assets/images/svgs/home/ic_envolope_open.svg" alt="">
             <p>INFO@FIRSTRHR.COM</p>
           </div>
           <div class="two d-flex me-4">
-            <img src="assets/images/svgs/home/ic_location.svg" alt="" class="ms-2">
+            <img src="assets/images/svgs/home/ic_location.svg" alt="">
             <p>ﻣﺮﻛﺰ ﺳﻠﻤﻰ اﻟﺘﺠﺎﺮي ﺟﺪة</p>
           </div>
         </div>
@@ -78,9 +77,9 @@
             <li></li>
             <li></li>
           </ul>
-          <ul class=" links d-md-flex align-items-center hide justify-content-md-between " id="links">
-            <div class=" d-flex justify-content-between align-items-center mt-5 flex-wrap ">
-              <i class=" fa-solid fa-xmark fa-2x me-3 d-md-none " id="close"></i>
+          <ul class=" links d-flex align-items-center justify-content-md-between  d-sm-flex " id="links">
+            <div class=" d-flex justify-content-between align-items-center mt-2 flex-wrap ">
+              <i class=" fa-solid fa-xmark fa-2x ms-5 mb-5 d-block d-md-none  " id="close"></i>
               <img src=" assets/images/pngs/home/ic_logo.png " class=" img-fluid d-md-none " alt=" main logo ">
             </div>
             <li class=" d-flex flex-column "><span>01</span> <a href="index.html"> الرئيسية </a></li>
@@ -110,7 +109,7 @@
   </div>
   <!-- end hero -->
   <!-- start message -->
-  <!-- <div class=" message container d-flex justify-content-between ">
+  <div class=" message container d-flex justify-content-between ">
     <div class=" row ">
       <div class=" img col-md-5 offset-md-2 col-xs-12 d-flex justify-content-center ">
         <img src=" assets/images/pngs/home/ic_dot_shape.png " class=" d-none d-lg-block align-self-center " alt=" ">
@@ -131,11 +130,10 @@
         <a href=" # " class=" btn mx-auto me-md-0 ">المزيد</a>
       </div>
     </div>
-
-  </div> -->
+  </div>
   <!-- end message -->
   <!-- start services -->
-  <!-- <div class=" services text-center text-md-end ">
+  <div class=" services text-center text-md-end ">
     <div class=" container ">
       <div class=" row ">
         <div class=" our-services col-md-4 offset-md-1 mb-5 ">
@@ -195,62 +193,70 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- end services -->
   <!-- start portfolio -->
-  <!-- <div class=" portfolio ">
-    <div class=" slider container d-flex justify-content-center justify-content-sm-between align-items-center flex-wrap
+  <div class="portfolio">
+    <div class="slider container d-flex justify-content-center justify-content-sm-between align-items-center flex-wrap
               text-center text-md-end ">
-      <div class=" text ">
+      <div class="text">
         <p>معرض الاعمال</p>
         <h1>مشاريعنا</h1>
       </div>
-      <div class=" icons d-flex ">
-        <i class=" fa-solid fa-arrow-right d-flex justify-content-center align-items-center "></i>
-        <i class=" fa-solid fa-arrow-left d-flex justify-content-center align-items-center "></i>
+      <div class="icons d-flex" dir="rtl">
+        <i class=" fa-solid fa-arrow-right d-flex justify-content-center align-items-center " id="nextSlider"></i>
+        <i class=" fa-solid fa-arrow-left d-flex justify-content-center align-items-center " id="prevSlider"></i>
       </div>
     </div>
-    <div class=" Cards d-flex ">
-      <div class=" Card ">
+    <div class="Cards">
+      <div class="Card">
         <img src=" assets/images/pngs/home/ic_portfolio_1.png " alt=" ">
-        <div class=" text pe-5 ">
+        <div class="text pe-5">
           <a href=" # " class=" mb-3 ">البناء</a>
           <p>مشروع مدينة وعد المال</p>
         </div>
       </div>
-      <div class=" Card ">
+      <div class="Card">
         <img src=" assets/images/pngs/home/ic_portfolio_2.png " alt=" ">
-        <div class=" text pe-5 ">
+        <div class="text pe-5">
           <a href=" # " class=" mb-3 ">البناء</a>
           <p>مشروع مدينة وعد المال</p>
         </div>
       </div>
-      <div class=" Card ">
+      <div class="Card">
         <img src=" assets/images/pngs/home/ic_portfolio_3.png " alt=" ">
-        <div class=" text pe-5 ">
+        <div class="text pe-5">
           <a href=" # " class=" mb-3 ">البناء</a>
           <p>مشروع مدينة وعد المال</p>
         </div>
       </div>
-      <div class=" Card ">
+      <div class="Card">
         <img src=" assets/images/pngs/home/ic_portfolio_4.png " alt=" ">
-        <div class=" text pe-5 ">
+        <div class="text pe-5">
           <a href=" # " class=" mb-3 ">البناء</a>
           <p>مشروع مدينة وعد المال</p>
         </div>
       </div>
-      <div class=" Card ">
+      <div class="Card">
         <img src=" assets/images/pngs/home/ic_portfolio_5.png " alt=" ">
-        <div class=" text pe-5 ">
+        <div class="text pe-5">
           <a href=" # " class=" mb-3 ">البناء</a>
           <p>مشروع مدينة وعد المال</p>
         </div>
       </div>
+      <div class="Card">
+        <img src=" assets/images/pngs/home/ic_portfolio_2.png " alt=" ">
+        <div class="text pe-5">
+          <a href=" # " class=" mb-3 ">البناء</a>
+          <p>مشروع مدينة وعد المال</p>
+        </div>
+      </div>
+
     </div>
-  </div> -->
+  </div>
   <!-- end portfolio -->
   <!-- start about -->
-  <!-- <div class=" about container ">
+  <div class=" about container ">
     <div class=" row d-flex align-items-center ">
       <div class=" about-us text-center text-md-end col-md-5 offset-lg-1 col-sm-12 ">
         <p>كلمة عنا</p>
@@ -287,10 +293,10 @@
       </div>
     </div>
 
-  </div> -->
+  </div>
   <!-- end about -->
   <!-- start contact -->
-  <!-- <div class=" contact-us text-center text-md-end ">
+  <div class=" contact-us text-center text-md-end ">
     <div class=" container ">
       <div class=" row ">
         <div class=" send-us col-md-3 offset-md-1 pt-5 ">
@@ -320,7 +326,7 @@
                 </div>
                 <div>
                   <input name=" service " id=" " placeholder=" نوع الخدمة ">
-                  <img src=" ./images/form 5.svg " alt=" ">
+                  <img src="assets/images/svgs/home/ic_arrow_down.svg" alt=" ">
                 </div>
                 <div><input type=" text " placeholder=" المهن المطلوبة ">
                   <img src=" assets/images/svgs/home/ic_engineer.svg " alt=" ">
@@ -343,19 +349,19 @@
             </div>
             <div class=" bottom ">
               <div class=" check-box mt-4 ">
-                <input type=" checkbox " id=" check ">
-                <label for=" check " class=" me-4 ">أوافق على الشروط والأحكام</label>
+                <input type="checkbox" id="check">
+                <label for="check" class="me-4">أوافق على الشروط والأحكام</label>
               </div>
-              <input type=" submit " value=" إرسال " class=" mx-auto mt-4 ">
+              <input type="submit" value="إرسال" class="mx-auto mt-4">
             </div>
           </form>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- end contact -->
   <!-- start sponsers -->
-  <!-- <div class=" sponsers text-center ">
+  <div class=" sponsers text-center ">
     <div class=" container ">
       <p class=" mb-5 ">شركاء النجاح نعتز بهم</p>
       <div class=" row align-items-center ">
@@ -380,10 +386,10 @@
       </div>
     </div>
 
-  </div> -->
+  </div>
   <!-- end sponsers -->
   <!-- start news  -->
-  <!-- <div class=" news mb-5 container ">
+  <div class=" news mb-5 container ">
     <div class=" head d-flex justify-content-center justify-content-sm-between align-items-center flex-wrap flex-sm-row
               text-center text-md-end ">
       <div class=" text ">
@@ -424,10 +430,10 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- end news  -->
   <!-- start footer  -->
-  <!-- <div class=" footer text-center ">
+  <div class=" footer text-center ">
     <div class=" footer-up container ">
       <div class=" row justify-content-center justify-content-lg-end ">
         <div class=" map col-sm-6 col-md-2 " style=" color: white; ">
@@ -459,12 +465,10 @@
             </div>
           </form>
         </div>
-
       </div>
-
     </div>
     <hr>
-    <div class=" footer-down container pb-3 d-flex justify-content-center justify-content-md-between align-items-center
+    <div class="footer-down container pb-3 d-flex justify-content-center justify-content-md-between align-items-center
               flex-wrap ">
       <div class=" call d-flex ">
         <a href=" # " class=" d-block ms-3 ps-3 ">اتصل بنا</a>
@@ -476,10 +480,8 @@
         <a href=" # " class=" ps-2 ms-2 ">Contact</a>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- end footer  -->
-
-
   <script src=" js/main.js "></script>
 </body>
 
