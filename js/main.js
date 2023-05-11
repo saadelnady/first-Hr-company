@@ -78,7 +78,6 @@ showSlide();
 sliderBullets.forEach((bullet) => {
   bullet.onclick = function () {
     currentSlide = this.getAttribute("data-index");
-
     removeBulletsActivation();
     showSlide();
   };
